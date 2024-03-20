@@ -1,0 +1,177 @@
+html {
+    background-color: rgb(238, 238, 238);
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+input[type="text"],
+input[type="password"] {
+    height: 30px;
+    padding-left: 10px;
+    border: 2px solid silver;
+    border-radius: 5px;
+    box-shadow: 2px 2px #88888822;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+    border: 2px solid rgb(61, 157, 179);
+    outline: none;
+}
+
+input::placeholder {
+    opacity: 0.5;
+}
+
+input[type="checkbox"] {
+    box-shadow: 2px 2px #88888822;
+    background-color: silver;
+}
+
+.btn-default {
+    width: 100px;
+    height: 30px;
+    color: rgb(255, 253, 252);
+    background-color: rgb(61, 157, 179);
+    border-radius: 5px;
+    border: 1px solid rgb(61, 157, 179);
+}
+
+.btn-reverse {
+    width: 100px;
+    height: 30px;
+    color: rgb(61, 157, 179);
+    background-color: rgb(255, 253, 252);
+    border-radius: 5px;
+    border: 1px solid rgb(61, 157, 179);
+}
+
+.btn-default:hover {
+    color: rgb(61, 157, 179);
+    background-color: rgb(255, 253, 252);
+}
+
+.btn-reverse:hover {
+    color: rgb(255, 253, 252);
+    background-color: rgb(61, 157, 179);
+}
+
+#btnLogar {
+    height: 40px;
+    margin-top: 10px;
+    font-size: 20px;
+}
+
+#btnCadastreSe {
+    margin-right: 20px;
+}
+
+.container {    
+    display: flex;
+    background-color: rgb(246, 246, 246);
+    margin: 0 auto;
+    width: 500px;
+    height: 410;
+    border-radius: 10px;
+    margin-top: 150px;
+    border: 3px solid rgb(191, 211, 213);
+    box-shadow: 2px 2px #88888822;
+    flex-direction: column;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    padding: 0px 20px 0 20px;
+
+}
+
+.content>* {
+    margin-bottom: 10px;
+}
+
+.content-title hr {
+    background-color: rgb(191, 211, 213);
+    height: 2px;
+    border: 0;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0), rgb(61, 157, 179), rgba(255, 255, 255, 0));
+}
+
+.content-bottom {
+    display: flex;
+    flex: 1;
+    background-color: rgb(225, 234, 235);    
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    align-items: center;
+    justify-content: end;
+    margin-top: 20px;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(61, 157, 179, 0.196));
+}
+
+.txt-align-center {
+    text-align: center;
+}
+
+.color-default {
+    color: rgb(61, 157, 179);
+}
+
+.bold {
+    font-weight: bolder;
+}
+
+.h-margin-10 {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.v-margin-10 {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.h-margin-5 {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.v-margin-5 {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.color-default {
+    color: rgb(61, 157, 179);
+}
+
+.w-stretch {
+    width: 100% !important;
+}
+
+.hover-shake:hover {   
+    animation: shake 0.5s, led 0.5s;  
+    animation-iteration-count: infinite;
+  }  
+@keyframes shake {
+    0% { transform: translate(1px, 1px) rotate(0deg); }
+    10% { transform: translate(-1px, -2px) rotate(-1deg); }
+    20% { transform: translate(-3px, 0px) rotate(1deg); }
+    30% { transform: translate(3px, 2px) rotate(0deg); }
+    40% { transform: translate(1px, -1px) rotate(1deg); }
+    50% { transform: translate(-1px, 2px) rotate(-1deg); }
+    60% { transform: translate(-3px, 1px) rotate(0deg); }
+    70% { transform: translate(3px, 1px) rotate(-1deg); }
+    80% { transform: translate(-1px, -1px) rotate(1deg); }
+    90% { transform: translate(1px, 2px) rotate(0deg); }
+    100% { transform: translate(1px, -2px) rotate(-1deg); }
+  }
+
+  @keyframes led {
+    0% {background-color: red;}
+    50% {background-color: green;}
+    100% {background-color: blue;}
+  }
