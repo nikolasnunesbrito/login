@@ -1,10 +1,17 @@
-html {
-    background-color: rgb(238, 238, 238);
+html, body {
+  height: 250px;
+  margin: 0;
+  padding: 0;
 }
 
 body {
     margin: 0;
-    padding: 0;
+  padding: 0;
+  background-image: url('vista-da-cidade-de-nova-iorque-ao-por-sol.jpg');
+  
+  background-repeat: no-repeat;
+ 
+  animation: moverFundo 60s infinite ease-in-out;
 }
 
 input[type="text"],
@@ -35,28 +42,28 @@ input[type="checkbox"] {
     width: 100px;
     height: 30px;
     color: rgb(255, 253, 252);
-    background-color: rgb(61, 157, 179);
+    background-color:rgb(14, 180, 218);
     border-radius: 5px;
-    border: 1px solid rgb(61, 157, 179);
+    border: 1px solidrgb(14, 180, 218);
 }
 
 .btn-reverse {
     width: 100px;
     height: 30px;
-    color: rgb(61, 157, 179);
+    color: rgb(14, 180, 218);
     background-color: rgb(255, 253, 252);
     border-radius: 5px;
-    border: 1px solid rgb(61, 157, 179);
+    border: 1px solid rgb(14, 180, 218);
 }
 
 .btn-default:hover {
-    color: rgb(61, 157, 179);
+    color:rgb(14, 180, 218);
     background-color: rgb(255, 253, 252);
 }
 
 .btn-reverse:hover {
     color: rgb(255, 253, 252);
-    background-color: rgb(61, 157, 179);
+    background-color: rgb(14, 180, 218);
 }
 
 #btnLogar {
@@ -70,16 +77,16 @@ input[type="checkbox"] {
 }
 
 .container {    
-    display: flex;
-    background-color: rgb(246, 246, 246);
-    margin: 0 auto;
-    width: 500px;
-    height: 410;
-    border-radius: 10px;
-    margin-top: 150px;
-    border: 3px solid rgb(191, 211, 213);
-    box-shadow: 2px 2px #88888822;
-    flex-direction: column;
+   display: flex;
+  background-color: rgba(246, 246, 246, 0.2); 
+  margin: 0 auto;
+  width: 500px;
+  height: 500px;
+  border-radius: 10px;
+  margin-top: 150px;
+  border: 3px solid rgb(191, 211, 213);
+  box-shadow: 2px 2px #88888822;
+  flex-direction: column;
 }
 
 .content {
@@ -108,7 +115,7 @@ input[type="checkbox"] {
     border-bottom-right-radius: 5px;
     align-items: center;
     justify-content: end;
-    margin-top: 20px;
+    margin-top: 100px;
     background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(61, 157, 179, 0.196));
 }
 
@@ -117,7 +124,7 @@ input[type="checkbox"] {
 }
 
 .color-default {
-    color: rgb(61, 157, 179);
+    color: rgb(14, 180, 218);
 }
 
 .bold {
@@ -145,7 +152,7 @@ input[type="checkbox"] {
 }
 
 .color-default {
-    color: rgb(61, 157, 179);
+    color: rgb(14, 180, 218);
 }
 
 .w-stretch {
@@ -175,3 +182,9 @@ input[type="checkbox"] {
     50% {background-color: green;}
     100% {background-color: blue;}
   }
+
+  @keyframes moverFundo {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
