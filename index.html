@@ -1,11 +1,8 @@
 <html>
-
 <head>
   <link rel="stylesheet" href="mystyle.css">
   <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
 </head>
-
-
 <body>
   <div class="container">
     <div class="content">
@@ -16,18 +13,21 @@
       </div>
       <div>
         <label class="color-default">E-mail</label><br>
-        <input class="w-stretch" type="text" placeholder="nikas@nikas.com.br">
+        <input id="email" class="w-stretch" type="text" placeholder="nikas@nikas.com.br">
       </div>
       <div>
         <label class="color-default">Senha</label><br>
-        <input class="w-stretch" type="password" placeholder="digite sua senha">
+        <input id="senha" class="w-stretch" type="password" placeholder="digite sua senha">
       </div>
       <div>
         <input type="checkbox" name="checkbox" id="cbMenterLogado">
         <label class="color-default" for="cbMenterLogado">Manter-me logado</label>
       </div>
-      <input id="btnLogar" class="btn-default w-stretch hover-shake" type="button" value="Logar" onclick="logar()">
+      <button id="btnLogar" class="btn-default w-stretch hover-shake" type="button" value="Logar" onclick="logar()">Logar </button>
     </div>
+      <h4 id="mensagemSucesso" style="display: none; color: rgb(0, 0, 0); text-align: center;">
+             Login realizado com sucesso!
+</h4>
     <div class="content-bottom">
       <a target="blank" href="https://www.google.com" class="color-default h-margin-10 bold">Ainda não tem conta?</a>
       <input id="btnCadastreSe" class="btn-reverse bold hover-shake" type="button" value="Cadastre-se">
@@ -36,8 +36,7 @@
   <footer>
   </footer>
 </body>
-
-</html>
+</html> 
 
 <script>
   $(document).ready(function () {
@@ -46,6 +45,37 @@
     });
   });
 
-  function logar() {      
+  function logar() { 
+    let email = document.getElementById("email").value;
+    let emailValido = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+
+    if (!emailValido) {
+    alert("E-mail inválido!");
+    return ;
+  }     
+   let Senha= document.getElementById("senha").value;
+    if (Senha.trim() === "") {
+     alert("Preencha o cambo senha!");
+     return ;
+}
+   let mensagem = document.getElementById("mensagemSucesso");
+  mensagem.style.display = "block";
+
+  
+  setTimeout(() => {
+    mensagem.style.opacity = "1";
+    mensagem.style.transition = "opacity 2s ease-in-out";
+    mensagem.style.opacity = "0";
+  }, 3000);
+
+ 
+  setTimeout(() => {
+    mensagem.style.display = "none";
+    mensagem.style.opacity = "1"; 
+  }, 5000);
+
   }
+  
+
+  
 </script>
