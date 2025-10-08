@@ -188,3 +188,45 @@ input[type="checkbox"] {
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
+@media screen and (max-width: 600px) {
+  .container {
+    width: 90%;
+    height: auto;
+    margin-top: 50px;
+    padding: 20px;
+    border-radius: 10px;
+  }
+
+  .content {
+    padding: 10px;
+  }
+
+  .content-bottom {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+    padding: 10px;
+  }
+
+  input[type="text"],
+  input[type="password"] {
+    font-size: 16px;
+    width: 100%;
+  }
+
+  .btn-default,
+  .btn-reverse {
+    width: 100%;
+    font-size: 16px;
+  }
+
+  h1 {
+    font-size: 24px;
+    text-align: center;
+  }
+
+  #btnCadastreSe {
+    margin: 10px 0;
+  }
+}
