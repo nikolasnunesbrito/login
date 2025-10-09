@@ -1,81 +1,54 @@
-<html>
-<head>
-  <link rel="stylesheet" href="mystyle.css">
-  <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
-</head>
-<body>
-  <div class="container">
-    <div class="content">
-      <div class="content-title ">
-        <H1 class="color-default txt-align-center">Login</h1>
-        <hr>
-        </hr>
-      </div>
-      <div>
-        <label class="color-default">E-mail</label><br>
-        <input id="email" class="w-stretch" type="text" placeholder="nikas@nikas.com.br">
-      </div>
-      <div>
-        <label class="color-default">Senha</label><br>
-        <input id="senha" class="w-stretch" type="password" placeholder="digite sua senha">
-      </div>
-      <div>
-        <input type="checkbox" name="checkbox" id="cbMenterLogado">
-        <label class="color-default" for="cbMenterLogado">Manter-me logado</label>
-      </div>
-      <button id="btnLogar" class="btn-default w-stretch hover-shake" type="button" value="Logar" onclick="logar()">Logar </button>
-    </div>
-      <h4 id="mensagemSucesso" style="display: none; color: rgb(0, 0, 0); text-align: center;">
-             Login realizado com sucesso!
-</h4>
-    <div class="content-bottom">
-      <a target="blank" href="https://www.google.com" class="color-default h-margin-10 bold">Ainda não tem conta?</a>
-      <input id="btnCadastreSe" class="btn-reverse bold hover-shake" type="button" value="Cadastre-se">
-    </div>
-  </div>
-  <footer>
-  </footer>
+<!DOCTYPE html>
+<html lang="pt-br">
+ <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     
+     <link rel="stylesheet" href="mystyle.css">
+     <title>Para estudar</title>
+ </head>
+ <body>
+      <canvas id="fundo"></canvas>
+      
+     <div id="content">
+        
+           <input type="text" id="display" readonly>
+        
+        <div class="Contentbutton">
+         <button id="c" onclick="insertNumber('÷')" class="button" > C </button>
+         <button id="parenthesisBtn" onclick="handleParenthesisClick()" class="button"> () </button>
+         <button id="%%" onclick="insertNumber('%')" class="button"> % </button>
+         <button id="/" onclick="insertNumber('÷')" class="button"> ÷ </button>
+         </div>
+         <div class="Contentbutton">
+         <button id="7" onclick="insertNumber('7')" class="button"> 7 </button>
+         <button id="8" onclick="insertNumber('8')" class="button"> 8 </button>
+         <button id="9" onclick="insertNumber('9')" class="button"> 9 </button>
+         <button id="*" onclick="insertNumber('X')" class="button"> X </button>
+        </div>
+         <div class="Contentbutton">
+         <button id="4" onclick="insertNumber('4')" class="button"> 4 </button>
+         <button id="5" onclick="insertNumber('5')" class="button"> 5 </button>
+         <button id="6" onclick="insertNumber('6')" class="button"> 6 </button>
+         <button id="-" onclick="insertNumber('-')" class="button"> - </button>
+         </div>
+         <div class="Contentbutton">
+         <button id="1" onclick="insertNumber('1')" class="button"> 1 </button>  
+         <button id="2" onclick="insertNumber('2')" class="button"> 2 </button>
+         <button id="3" onclick="insertNumber('3')" class="button"> 3 </button>
+         <button id="+" onclick="insertNumber('+')" class="button"> + </button>
+         </div>
+         <div class="Contentbutton">
+        
+         <button id="historyBtn" class="button">🕘</button>
+         <button id="0" onclick="insertNumber('0')" class="button"> 0 </button>
+         <button id="," onclick="insertNumber(',')" class="button"> , </button>
+         <button id="=" onclick="calcular()" class="button"> = </button>
+         </div>
+         
+        <div id="historyBox" class="dropdown-content hidden"></div>
+     </div>
+     <div class="aranha"></div>
+  <script src="Script.js"></script>
 </body>
-</html> 
-
-<script>
-  $(document).ready(function () {
-    $("#btnLogar").click(function () {
-
-    });
-  });
-
-  function logar() { 
-    let email = document.getElementById("email").value;
-    let emailValido = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-
-    if (!emailValido) {
-    alert("E-mail inválido!");
-    return ;
-  }     
-   let Senha= document.getElementById("senha").value;
-    if (Senha.trim() === "") {
-     alert("Preencha o cambo senha!");
-     return ;
-}
-   let mensagem = document.getElementById("mensagemSucesso");
-  mensagem.style.display = "block";
-
-  
-  setTimeout(() => {
-    mensagem.style.opacity = "1";
-    mensagem.style.transition = "opacity 2s ease-in-out";
-    mensagem.style.opacity = "0";
-  }, 3000);
-
- 
-  setTimeout(() => {
-    mensagem.style.display = "none";
-    mensagem.style.opacity = "1"; 
-  }, 5000);
-
-  }
-  
-
-  
-</script>
+<footer>
