@@ -59,11 +59,36 @@ canvas {
 /* Responsivo para celular */
 @media (max-width: 600px) {
   #content {
-    width: 90%;
+    width: 95%;
     height: auto;
-    margin-top: 50px;
-    font-size: 1em;
-    padding: 15px;
+    margin-top: 30px;
+    padding: 10px;
+    border-width: 3px;
+  }
+
+  #display {
+    font-size: 28px;
+    padding: 10px;
+  }
+
+  .Contentbutton {
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    gap: 10px;
+  }
+
+  .button {
+    width: 45%;
+    height: 60px;
+    font-size: 18px;
+  }
+
+  #historyBox {
+    width: 90%;
+    max-height: 150px;
+    font-size: 14px;
+    padding: 10px;
   }
 }
 #historyBox {
