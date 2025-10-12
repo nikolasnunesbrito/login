@@ -1,19 +1,23 @@
-body {
+html, body {
   margin: 0;
   padding: 0;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto;
   background: black;
   display: flex;
   justify-content: center;
+  align-items: center;
+  min-height: 100vh;
 }
 
 canvas {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
   display: block;
+  z-index: 0;
 }
 
 #content {
@@ -31,14 +35,16 @@ canvas {
   align-items: center;
   flex-direction: column;
 }
-#display{
+
+#display {
   height: 100%;
   width: 100%;
   margin-bottom: 10px;
   font-size: 40px;
   text-align: right;
 }
-.Contentbutton{
+
+.Contentbutton {
   height: 70px;
   width: 300px;
   display: flex;
@@ -46,7 +52,8 @@ canvas {
   gap: 20px;
   margin-top: 10px;
 }
-.button{
+
+.button {
   height: 70px;
   width: 150px;
   color: red;
@@ -54,47 +61,10 @@ canvas {
   font-size: 20px;
 }
 
-
-
-/* Responsivo para celular */
-@media (max-width: 600px) {
-  #content {
-    width: 95%;
-    height: auto;
-    margin-top: 30px;
-    padding: 10px;
-    border-width: 3px;
-  }
-
-  #display {
-    font-size: 28px;
-    padding: 10px;
-  }
-
-  .Contentbutton {
-    flex-wrap: wrap;
-    justify-content: center;
-    width: 100%;
-    gap: 10px;
-  }
-
-  .button {
-    width: 45%;
-    height: 60px;
-    font-size: 18px;
-  }
-
-  #historyBox {
-    width: 90%;
-    max-height: 150px;
-    font-size: 14px;
-    padding: 10px;
-  }
-}
 #historyBox {
   position: absolute;
   top: 50%;
-  left: 50%;
+  left: -30%;
   transform: translate(-50%, -50%);
   background-color: rgba(0, 0, 0, 0.9);
   border: 1px solid white;
@@ -114,4 +84,36 @@ canvas {
 
 #historyBox.visible {
   display: block;
+}
+
+/* Responsividade para celular */
+@media (max-width: 600px) {
+  #content {
+    width: 90vw;
+    height: auto;
+    margin-top: 50px;
+    padding: 15px;
+  }
+
+  #display {
+    font-size: 6vw;
+  }
+
+  .Contentbutton {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+  }
+
+  .button {
+    width: 40vw;
+    height: 60px;
+    font-size: 5vw;
+  }
+
+  #historyBox {
+    width: 80vw;
+    font-size: 4vw;
+  }
 }
