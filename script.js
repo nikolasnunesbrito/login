@@ -74,6 +74,8 @@ function resizeCanvas() {
 }
 resizeCanvas();
 window.addEventListener("resize", resizeCanvas);
+resizeCanvas();
+window.addEventListener("resize", resizeCanvas);
 
 const mouse = { x: null, y: null };
 const ghost = { x: canvas.width / 2, y: canvas.height / 2 };
@@ -102,7 +104,7 @@ window.addEventListener("touchmove", e => {
 }, { passive: false });
 
 const particles = [];
-const numParticles = 300;
+const numParticles = 1500;
 
 for (let i = 0; i < numParticles; i++) {
   particles.push({
@@ -116,14 +118,16 @@ for (let i = 0; i < numParticles; i++) {
 
 function draw() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
-  const target = (mouseBlocked || mouse.x === null || mouse.y === null) ? retreatPoint : mouse;
+
+  const target = (mouseBlocked || mouse.x === null || mouse.y === null)
+    ? retreatPoint
+    : mouse;
 
   ghost.x += (target.x - ghost.x) * 0.05;
   ghost.y += (target.y - ghost.y) * 0.05;
 
   for (let p of particles) {
-    p.x += p.vx;
-    p.y += p.vy;
+    
 
     if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
     if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
@@ -134,37 +138,41 @@ function draw() {
     ctx.fill();
   }
 
+  // Tentáculos conectando partículas ao perseguidor (sempre visíveis)
   for (let p of particles) {
-    const dx = ghost.x - p.x;
-    const dy = ghost.y - p.y;
-    const dist = Math.sqrt(dx * dx + dy * dy);
+  const dx = ghost.x - p.x;
+  const dy = ghost.y - p.y;
+  const dist = Math.sqrt(dx * dx + dy * dy);
+  if (dist < 180) {
+    const rayCount = 3 + Math.floor(Math.random() * 3); // 3 a 5 raios por partícula
 
-    if (dist < 180) {
-      const rayCount = 3 + Math.floor(Math.random() * 3);
+    for (let i = 0; i < rayCount; i++) {
+      const offsetX = (Math.random() - 0.5) * 60;
+      const offsetY = (Math.random() - 0.5) * 60;
 
-      for (let i = 0; i < rayCount; i++) {
-        const offsetX = (Math.random() - 0.5) * 60;
-        const offsetY = (Math.random() - 0.5) * 60;
-        const cpX = (p.x + ghost.x) / 2 + offsetX;
-        const cpY = (p.y + ghost.y) / 2 + offsetY;
+      const cpX = (p.x + ghost.x) / 2 + offsetX;
+      const cpY = (p.y + ghost.y) / 2 + offsetY;
 
-        ctx.beginPath();
-        ctx.moveTo(p.x, p.y);
-        ctx.quadraticCurveTo(cpX, cpY, ghost.x, ghost.y);
+      const pulse = 1 + Math.sin(Date.now() / 100 + i * 10) * 0.7;
 
-        const r = 255 + Math.floor(Math.random() * 55);
-        const g = 255;
-        const b = 255;
-        const alpha = 0.2 + Math.random() * 0.8;
+      ctx.beginPath();
+      ctx.moveTo(p.x, p.y);
+      ctx.quadraticCurveTo(cpX, cpY, ghost.x, ghost.y);
 
-        ctx.strokeStyle = `rgba(${r}, ${g}, ${b}, ${alpha})`;
-        ctx.lineWidth = 1.5 + Math.random() * 2.5;
-        ctx.shadowColor = "rgba(255, 255, 255, 0.8)";
-        ctx.shadowBlur = 15;
-        ctx.stroke();
-      }
+      // Cor mutante tipo raio
+      const r = 255 + Math.floor(Math.random() * 55);
+      const g = 255;
+      const b = 255;
+      const alpha = 0.2 + Math.random() * 0.8;
+
+      ctx.strokeStyle = `rgba(${r}, ${g}, ${b}, ${alpha})`;
+      ctx.lineWidth = 1.5 + Math.random() * 2.5;
+      ctx.shadowColor = " rgba(255, 255, 255, 0.8)";
+      ctx.shadowBlur = 15;
+      ctx.stroke();
     }
   }
+}
 
   for (let i = 0; i < 5; i++) {
     const angle = Math.random() * Math.PI * 2;
